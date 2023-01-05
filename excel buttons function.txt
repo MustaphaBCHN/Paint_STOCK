@@ -1,0 +1,29 @@
+Excel buttons code
+
+Private Sub CommandButton1_Click()
+Dim Last, Cl, Io As Integer
+Last = Feuil2.Range("A10000").End(xlUp).Row + 1
+For Cl = 1 To 8
+For Io = 5 To 19 Step 2
+Feuil2.Cells(Last, Cl).Value = Feuil1.Cells(Io, "f").Value
+Cl = Cl + 1
+Next Io
+Next
+For Io = 5 To 19 Step 2
+Feuil1.Cells(Io, "f").Value = ""
+Next Io
+MsgBox "Done"
+End Sub
+
+Private Sub CommandButton4_Click()
+Feuil2.Range("I1").Value = Feuil1.Range("G3").Value
+Dim Lsrch, Sr1, Lf As Integer
+Lsrch = Feuil2.Range("J1").Value
+For sr = 1 To 8
+For Lf = 5 To 19 Step 2
+Feuil1.Cells(Lf, "F").Value = Feuil2.Cells(Lsrch, sr).Value
+sr = sr + 1
+Next Lf
+Next
+Feuil1.Range("G3").Value = ""
+End Sub
